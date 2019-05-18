@@ -1,0 +1,531 @@
+<HTML>
+<HEAD>
+<Title>Client Game Module Classes</Title>
+</HEAD>
+<BODY>
+<H1>
+<center>Client Game Module Classes</center>
+</H1>
+
+<h2> <a name="Class">Class</a></h2>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<h2> <a name="ClientGameCommandManager">ClientGameCommandManager</a> -> <a href="#Listener">Listener</a> -> <a href="#Class">Class</a></h2>
+<BLOCKQUOTE>
+
+<P><tt><B>(</B></tt><BR>
+<ul>Signals the beginning of a block of commands</ul>
+
+<P><tt><B>)</B></tt><BR>
+<ul>Signals the end of a block of commands</ul>
+
+<P><tt><B>accel</B>( <i>Float xAcc, Float yAcc, Float zAcc </i>)</tt><BR>
+<ul>Set the acceleration of the spawned tempmodel.<BR>
+This acceleration is applied using the world axis</ul>
+
+<P><tt><B>alias</B>( <i>String alias, String realPath, [ String arg1 ], [ String arg2 ], [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ] </i>)</tt><BR>
+<ul>Create an alias to the specified path</ul>
+
+<P><tt><B>aliascache</B>( <i>String alias, String realPath, [ String arg1 ], [ String arg2 ], [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ] </i>)</tt><BR>
+<ul>Create an alias to the specified path and cache the resource</ul>
+
+<P><tt><B>align</B></tt><BR>
+<ul>Align the tempmodels to the direction they are traveling</ul>
+
+<P><tt><B>alignonce</B></tt><BR>
+<ul>Align the tempmodels to the direction they are traveling at the time they are initialized</ul>
+
+<P><tt><B>alignstretch</B>( <i>[ Float scaleMultiplier ] </i>)</tt><BR>
+<ul>Aligns the temp model to the direction of travel, and stretches it betwen the last and current positions.<BR>
+</ul>
+
+<P><tt><B>alpha</B>( <i>Float alpha </i>)</tt><BR>
+<ul>Set the alpha of the spawned tempmodel</ul>
+
+<P><tt><B>alwaysdraw</B></tt><BR>
+<ul>Set emitter/tempmodel to be alwaysdraw. Which can be turned off by alwaysdraw</ul>
+
+<P><tt><B>angles</B>( <i>[ String [random|crandom|range] ], Float pitch, [ Float [pitch2] ], [ String [random|crandom|range] ], Float yaw, [ Float [yaw2] ], [ String [random|crandom|range] ], Float roll, [ Float [roll2] ] </i>)</tt><BR>
+<ul>If random is specified, the component will range from 0 to +specified value.<BR>
+If crandom is specified, the component will range from -specified to +specified value.<BR>
+If range is specified, the component needs two values; it will randomly pick a number in the range<BR>
+from the first number to the first number plus the second number.<BR>
+If no keyword is explicitly specified, then the component will be just set<BR>
+without randomness.</ul>
+
+<P><tt><B>anim</B>( <i>String animation </i>)</tt><BR>
+<ul>Set a tempmodel the the specified animation</ul>
+
+<P><tt><B>animateonce</B></tt><BR>
+<ul>Set a tempmodel to animate once and then get removed</ul>
+
+<P><tt><B>avelocity</B>( <i>Float yawVel, Float pitchVel, Float rollVel </i>)</tt><BR>
+<ul>Set the angular velocity of the spawned tempmodel</ul>
+
+<P><tt><B>beam_offset_endpoints</B></tt><BR>
+<ul>Make the beams endpoints offset to reduce the bunching up effect</ul>
+
+<P><tt><B>beamdelay</B>( <i>[ String [random] ], [ Float delay ] </i>)</tt><BR>
+<ul>Set the delay time between creating new beams.<BR>
+If the keyword random is specified, the delay between beams will occur randomly between 0 and the time specified</ul>
+
+<P><tt><B>beamlength</B>( <i>Float length </i>)</tt><BR>
+<ul>Set the length of the beam or trace length (for decals)</ul>
+
+<P><tt><B>beampersist</B></tt><BR>
+<ul>Make the beams persist instead of blinking out</ul>
+
+<P><tt><B>beamshader</B>( <i>String shadername </i>)</tt><BR>
+<ul>Set the shader to use for the beam</ul>
+
+<P><tt><B>beamsphere</B>( <i>Integer count </i>)</tt><BR>
+<ul>Create a sphere shaped beam effect from the origin. Count is the number of beams</ul>
+
+<P><tt><B>beamtoggledelay</B>( <i>[ String [random] ], [ Float delay ] </i>)</tt><BR>
+<ul>Set a delay between toggling the beams on and off.<BR>
+If the keyword random is specified, the delay between toggling will occur randomly between 0 and the time specified</ul>
+
+<P><tt><B>blockdlight</B>( <i>Float intensity, Float life, [ String type1 ], [ String type2 ] </i>)</tt><BR>
+<ul>Spawn a dynamic light from the origin of the model<BR>
+An additional commands block allows the specification of moving & varying dlights<BR>
+The intensity is the radius of the light<BR>
+type is the type of light to create (lensflare,viewlensflare,additive)</ul>
+
+<P><tt><B>bodyfall</B>( <i>[ Float fVolume ] </i>)</tt><BR>
+<ul>Play a body fall sound that is appropriate to the surface we are falling on<BR>
+</ul>
+
+<P><tt><B>bouncedecal</B>( <i>Integer maxamount, [ Integer temporary ] </i>)</tt><BR>
+<ul>Put a mark when the tempmodel bounces and hits a surface<BR>
+maxamount = Max amount of decals to make when bouncing<BR>
+temporary = specify 1 for a temporary mark that only appears for a short time, 0 for a decal that stays aroung longer (default is 0)<BR>
+</ul>
+
+<P><tt><B>bouncefactor</B>( <i>Float factor </i>)</tt><BR>
+<ul>Set the bounciness of a tempmodel when it hits a solid.<BR>
+A factor > 1 will make the model bounce higher and higher on each hit</ul>
+
+<P><tt><B>bouncesound</B>( <i>String sound, [ Float [delay] ] </i>)</tt><BR>
+<ul>When bouncing, what sound to play on impact and an option delay (default is 1 second) between playing this sound</ul>
+
+<P><tt><B>bouncesoundonce</B>( <i>String sound </i>)</tt><BR>
+<ul>When bouncing, what sound to play on impact one time</ul>
+
+<P><tt><B>cache</B>( <i>String resourceName </i>)</tt><BR>
+<ul>Cache the specified resource</ul>
+
+<P><tt><B>cachefont</B>( <i>String fontName </i>)</tt><BR>
+<ul>Cache the specified font (For menu graphics that should never be picmiped)</ul>
+
+<P><tt><B>cachefromalias</B>( <i>String alias </i>)</tt><BR>
+<ul>Caches all data matching a previously specified alias</ul>
+
+<P><tt><B>cacheimage</B>( <i>String imageName </i>)</tt><BR>
+<ul>Cache the specified image (For menu graphics that should never be picmiped)</ul>
+
+<P><tt><B>circle</B></tt><BR>
+<ul>Set the tempmodels to be spawned in a circle around the origin<BR>
+This circle will be generated in the X/Y axis of the model</ul>
+
+<P><tt><B>clampvel</B>( <i>Float minX, Float maxX, Float minY, Float maxY, Float minZ, Float maxZ </i>)</tt><BR>
+<ul>sets the valid range for velocities along global axes.  Cannot be used with clampvelaxis.</ul>
+
+<P><tt><B>clampvelaxis</B>( <i>Float minX, Float maxX, Float minY, Float maxY, Float minZ, Float maxZ </i>)</tt><BR>
+<ul>sets the valid range for velocities along oriented axes.  Cannot be used with clampvel.</ul>
+
+<P><tt><B>client</B>( <i>[ String arg1 ], [ String arg2 ], [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ] </i>)</tt><BR>
+<ul>Execute the specified command arg string</ul>
+
+<P><tt><B>collision</B>( <i>[ String water ] </i>)</tt><BR>
+<ul>Turn on collision for the tempmodel.<BR>
+If the keyword water is specified, then the tempmodel will collide with water</ul>
+
+<P><tt><B>color</B>( <i>Float red, Float green, Float blue, [ Float alpha ] </i>)</tt><BR>
+<ul>Set the color (modulate) of the spawned tempmodel.</ul>
+
+<P><tt><B>colorvelocity</B>( <i>Float rVel, Float gVel, Float bVel </i>)</tt><BR>
+<ul>Set the color velocity of the spawned dlight tempmodel</ul>
+
+<P><tt><B>commanddelay</B>( <i>Float delay, String command, [ String [arg1] ], [ String [arg2] ], [ String [arg3] ], [ String [arg4] ], [ String [arg5] ], [ String [arg6] ] </i>)</tt><BR>
+<ul>executes a command after the given delay</ul>
+
+<P><tt><B>cone</B>( <i>Float height, Float radius </i>)</tt><BR>
+<ul>Randomly spawns the particle somewhere inside a cone along the model's local x axis</ul>
+
+<P><tt><B>count</B>( <i>Integer count </i>)</tt><BR>
+<ul>Set the number of tempmodels that are spawned<BR>
+This is only used for the originspawn and tagspawn commands,<BR>
+and not for emitters, use spawnrate instead</ul>
+
+<P><tt><B>decalradius</B>( <i>Float radius </i>)</tt><BR>
+<ul>Set the radius of the decal</ul>
+
+<P><tt><B>decalshader</B>( <i>String shadername </i>)</tt><BR>
+<ul>Set the shader to use for the impact decal</ul>
+
+<P><tt><B>delayedrepeat</B>( <i>Float time, Integer commandnumber, [ String [arg1] ], [ String [arg2] ], [ String [arg3] ], [ String [arg4] ], [ String [arg5] ], [ String [arg6] ] </i>)</tt><BR>
+<ul>Set the time delay between this command getting executed.  This requires a command number to be assigned here.<BR>
+This is internally used to keep track of the commands this entity executes and will resolve naming conflicts.<BR>
+This is only useful if the command gets called continuously but must execute at regular intervals.<BR>
+</ul>
+
+<P><tt><B>delayedsfx</B>( <i>Float fDelay, String sCommand, [ String arg1 ], [ String arg2 ], [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ], [ String arg7 ], [ String arg8 ] </i>)</tt><BR>
+<ul>Used for adding commands to a special effect with a time delay</ul>
+
+<P><tt><B>detail</B></tt><BR>
+<ul>Set emitter/tempmodel to be detail. Which can be turned off by detail</ul>
+
+<P><tt><B>dietouch</B></tt><BR>
+<ul>Set the spawned tempmodels to die when they touch a solid</ul>
+
+<P><tt><B>dlight</B>( <i>Float red, Float green, Float blue, Float intensity, [ String type1 ], [ String type2 ] </i>)</tt><BR>
+<ul>This makes the emitter itself a dynamic lightThe red,green,blue parms are the color of the light<BR>
+The intensity is the radius of the light<BR>
+type is the type of light to create (lensflare,viewlensflare,additive)</ul>
+
+<P><tt><B>emitterangles</B>( <i>[ Float pitchofs ], [ Float yawofs ], [ Float rollofs ] </i>)</tt><BR>
+<ul>Set the tempmodels angles to that of the emitter<BR>
+The three optional parameters are for setting an angle offset from the emitter</ul>
+
+<P><tt><B>emitteroff</B>( <i>String emitterName </i>)</tt><BR>
+<ul>Turn the specified emitter off</ul>
+
+<P><tt><B>emitteron</B>( <i>String emitterName </i>)</tt><BR>
+<ul>Turn the specified emitter on</ul>
+
+<P><tt><B>endalpha</B>( <i>Float alpha </i>)</tt><BR>
+<ul>Set the alpha of the beam's endpoint</ul>
+
+<P><tt><B>entcolor</B>( <i>Float red, Float green, Float blue, [ Float alpha ] </i>)</tt><BR>
+<ul>Set the color(modulate) of this entity</ul>
+
+<P><tt><B>eyelimits</B>( <i>Float fPitchmax, Float fYawmax, Float fRollmax </i>)</tt><BR>
+<ul>Set the max angle offsets for the eyes from the model's head</ul>
+
+<P><tt><B>eyemovement</B>( <i>Float fMovement </i>)</tt><BR>
+<ul>Sets the amount of the head's movement to apply to the players view. 1 is full, 0 is none</ul>
+
+<P><tt><B>fade</B></tt><BR>
+<ul>Set the tempmodel to fade out over it's life</ul>
+
+<P><tt><B>fadedelay</B>( <i>Float time </i>)</tt><BR>
+<ul>Set the amount of time to delay a fade</ul>
+
+<P><tt><B>fadein</B>( <i>Float time </i>)</tt><BR>
+<ul>Set the tempmodel to fade in over the specified time</ul>
+
+<P><tt><B>flicker</B></tt><BR>
+<ul>Set the tempmodel to change it's alpha every frame.  Creates a flickering effect</ul>
+
+<P><tt><B>footstep</B>( <i>String tag, String sRunning, [ Integer iEquipment ] </i>)</tt><BR>
+<ul>Play a footstep sound that is appropriate to the surface we are currently stepping on<BR>
+sRunning should be set to run, walk, or ladder</ul>
+
+<P><tt><B>friction</B>( <i>Float friction </i>)</tt><BR>
+<ul>Set the friction as a fraction of velocity per second... exact effect depends on physics rate:<BR>
+slowdown per second = [1 - (friction / physicsrate)] ^ physicsrate; physicsrate defaults to 10</ul>
+
+<P><tt><B>globalfade</B>( <i>[ String [in|out] ] </i>)</tt><BR>
+<ul>Set the tempmodels to globally fade in or out together</ul>
+
+<P><tt><B>hardlink</B></tt><BR>
+<ul>Set the tempmodels linked to the model they are spawned from, so they move with it</ul>
+
+<P><tt><B>inwardsphere</B></tt><BR>
+<ul>Create the tempmodels in a sphere around the origin, and adjust their<BR>
+angle so they point toward the center of the sphere.  This is best used with a<BR>
+spehere radius and some velocity so the models look like they're heading toward the<BR>
+center of the sphere.</ul>
+
+<P><tt><B>landing</B>( <i>[ Float fVolume ], [ Integer iEquipment ] </i>)</tt><BR>
+<ul>Play a landing sound that is appropriate to the surface we are landing on<BR>
+</ul>
+
+<P><tt><B>life</B>( <i>Float life, [ Float randomlife ] </i>)</tt><BR>
+<ul>Set the life (in seconds) of the spawned tempmodel</ul>
+
+<P><tt><B>lightstyle</B>( <i>String nameOfImage </i>)</tt><BR>
+<ul>Set a lightstyle to determine the color of this tempmodel, the image<BR>
+specified is used to determine the look of the light style</ul>
+
+<P><tt><B>loopsound</B>( <i>String soundName, [ Float volume ], [ Float min_distance ], Float pitch </i>)</tt><BR>
+<ul>Play the specifed sound as a looping sound</ul>
+
+<P><tt><B>maxoffset</B>( <i>Float maxoffset </i>)</tt><BR>
+<ul>Set the maximum offset from center in a beam</ul>
+
+<P><tt><B>minoffset</B>( <i>Float minoffset </i>)</tt><BR>
+<ul>Set the minimum offset from center in a beam</ul>
+
+<P><tt><B>model</B>( <i>String modelname1, [ String modelname2 ], [ String modelname3 ], [ String modelname4 ], [ String modelname5 ], [ String modelname6 ] </i>)</tt><BR>
+<ul>Set the modelname of the tempmodel.  If more than 1 model is specified, it will<BR>
+be randomly chosen when spawned</ul>
+
+<P><tt><B>numsegments</B>( <i>Integer numsegments </i>)</tt><BR>
+<ul>Set the number of segments in a beam</ul>
+
+<P><tt><B>offset</B>( <i>[ String [random|crandom|range] ], Float offsetX, [ Float [offsetX2] ], [ String [random|crandom|range] ], Float offsetY, [ Float [offsetY2] ], [ String [random|crandom|range] ], Float offsetZ, [ Float [offsetZ2] ] </i>)</tt><BR>
+<ul>If random is specified, the component will range from 0 to +specified offset.<BR>
+If crandom is specified, the component will range from -specified to +specified offset.<BR>
+If range is specified, the component needs two values; it will randomly pick a number in the range<BR>
+from the first number to the first number plus the second number.<BR>
+If no keyword is explicitly specified, then the component will just be added on<BR>
+without randomness.<BR>
+This offset is applied using the world axis.</ul>
+
+<P><tt><B>offsetalongaxis</B>( <i>[ String [crandom|random|range] ], Float offsetx, [ Float [offsetx2] ], [ String [crandom|random|range] ], Float offsety, [ Float [offsety2] ], [ String [crandom|random|range] ], Float offsetz, [ Float [offsetz2] ] </i>)</tt><BR>
+<ul>If random is specified, the component will range from 0 to specified offset.<BR>
+If crandom is specified, the component will range from -specified to +specified offset.<BR>
+If range is specified, the component needs two values; it will randomly pick a number in the range<BR>
+from the first number to the first number plus the second number.<BR>
+If no keyword is explicitly specified, then the component will just be added on<BR>
+without randomness.<BR>
+This offset is applied using the model's local axis</ul>
+
+<P><tt><B>orientation</B>( <i>Float degrees </i>)</tt><BR>
+<ul>Set the degrees to orient the decal.  Specify 'random' to use a random orientation</ul>
+
+<P><tt><B>originbeamemitter</B></tt><BR>
+<ul>Spawn beams from the origin.<BR>
+This command is followed by a ( to specify a block of commands that modify the beam</ul>
+
+<P><tt><B>originbeamspawn</B></tt><BR>
+<ul>Spawn a beam from the origin.<BR>
+This command is followed by a ( to specify a block of commands that modify the beam</ul>
+
+<P><tt><B>origindlight</B>( <i>Float red, Float green, Float blue, Float intensity, Float life, [ String type1 ], [ String type2 ] </i>)</tt><BR>
+<ul>Spawn a dynamic light from the origin of the model<BR>
+The red,green,blue parms are the color of the light<BR>
+The intensity is the radius of the light<BR>
+type is the type of light to create (lensflare,viewlensflare,additive)</ul>
+
+<P><tt><B>originemitter</B>( <i>String emitterName </i>)</tt><BR>
+<ul>Create an emitter that spawns tempmodels from the origin.<BR>
+This command is followed by a ( to specify a block of commands that modify the tempmodels</ul>
+
+<P><tt><B>originspawn</B></tt><BR>
+<ul>Spawn tempmodels from the origin.<BR>
+This command is followed by a ( to specify a block of commands that modify the tempmodels</ul>
+
+<P><tt><B>parallel</B></tt><BR>
+<ul>Set tempmodel to be parallel to the viewer</ul>
+
+<P><tt><B>parentangles</B></tt><BR>
+<ul>Set the tempmodels angles to that of its parent</ul>
+
+<P><tt><B>parentlink</B></tt><BR>
+<ul>Set the tempmodels linked to the parent, so they move with the parent model</ul>
+
+<P><tt><B>physicsrate</B>( <i>String rate </i>)</tt><BR>
+<ul>Set the rate (in updates per second) for the tempmodel's physics to be updated</ul>
+
+<P><tt><B>print</B>( <i>String string </i>)</tt><BR>
+<ul>Prints a string.</ul>
+
+<P><tt><B>radialvelocity</B>( <i>Float scale, Float min_additional, Float max_additional </i>)</tt><BR>
+<ul>Subtracts the particle origin from origin and multiplies by scale, then adds additional velocity<BR>
+between min and max... negative values bring toward origin<BR>
+</ul>
+
+<P><tt><B>radius</B>( <i>Float radius </i>)</tt><BR>
+<ul>Set the radius of the sphere for the inwardsphere amd sphere settings</ul>
+
+<P><tt><B>randomchance</B>( <i>Float percentage, [ String [arg1] ], [ String [arg2] ], [ String [arg3] ], [ String [arg4] ], [ String [arg5] ], [ String [arg6] ] </i>)</tt><BR>
+<ul>Set the percentage chance that command will occur</ul>
+
+<P><tt><B>randomroll</B></tt><BR>
+<ul>Set the tempmodels so they pick a random roll value every frame</ul>
+
+<P><tt><B>randvel</B>( <i>[ String [random|crandom|range] ], Float xVel, [ Float [xVel2] ], [ String [random|crandom|range] ], Float yVel, [ Float [yVel2] ], [ String [random|crandom|range] ], Float zVel, [ Float [zVel2] ] </i>)</tt><BR>
+<ul>Add a random component to the regular velocity.<BR>
+If random is specified, the component will range from 0 to specified velocity.<BR>
+If crandom is specified, the component will range from -specified to +specified velocity.<BR>
+If range is specified, the component needs two values; it will randomly pick a number in the range<BR>
+from the first number to the first number plus the second number.<BR>
+If no keyword is explicitly specified, then the component will just be added on<BR>
+without randomness.<BR>
+This velocity is applied using the world axis</ul>
+
+<P><tt><B>randvelaxis</B>( <i>[ String [random|crandom|range] ], Float forwardVel, [ Float [forwardVel2] ], [ String [random|crandom|range] ], Float rightVel, [ Float [rightVel2] ], [ String [random|crandom|range] ], Float upVel, [ Float [upVel2] ] </i>)</tt><BR>
+<ul>Add a random component to the regular velocity.<BR>
+If random is specified, the component will range from 0 to specified velocity.<BR>
+If crandom is specified, the component will range from -specified to +specified velocity.<BR>
+If range is specified, the component needs two values; it will randomly pick a number in the range<BR>
+from the first number to the first number plus the second number.<BR>
+If no keyword is explicitly specified, then the component will just be added on<BR>
+without randomness.<BR>
+This velocity is applied using the parent axis</ul>
+
+<P><tt><B>scale</B>( <i>Float scale </i>)</tt><BR>
+<ul>Set the scale of a spawned tempmodel</ul>
+
+<P><tt><B>scalemax</B>( <i>Float scalemax </i>)</tt><BR>
+<ul>Set the maximum scale of a spawned tempmodel</ul>
+
+<P><tt><B>scalemin</B>( <i>Float scalemin </i>)</tt><BR>
+<ul>Set the minimum scale of a spawned tempmodel</ul>
+
+<P><tt><B>scalerate</B>( <i>Float rate </i>)</tt><BR>
+<ul>Set the scaling rate of the spawned tempmodel<BR>
+If a negative rate is used, the model will shrink</ul>
+
+<P><tt><B>scaleupdown</B></tt><BR>
+<ul>Set the tempmodel to scale up to scale value and then down.</ul>
+
+<P><tt><B>settiki</B>( <i>String settiki </i>)</tt><BR>
+<ul>sets the tiki the aliases should be on in the sound uberfile</ul>
+
+<P><tt><B>sfx</B>( <i>String sCommand, [ String arg1 ], [ String arg2 ], [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ], [ String arg7 ], [ String arg8 ] </i>)</tt><BR>
+<ul>Used for adding commands to a special effect</ul>
+
+<P><tt><B>smokeparms</B>( <i>Float typeinfo, Float fademult, Float scalemult </i>)</tt><BR>
+<ul>Sets some misc parms for smoke</ul>
+
+<P><tt><B>sound</B>( <i>String soundName, [ String channelName ], [ Float volume ], [ Float min_distance ], [ Float pitch ], [ Float randompitch ], [ String randomvolume ] </i>)</tt><BR>
+<ul>Play the specified sound</ul>
+
+<P><tt><B>spawnrange</B>( <i>Integer range1, [ Integer range2 ] </i>)</tt><BR>
+<ul>Sets the range in which this effect will spawn tempmodels.  If one number is specified, it is the max range<BR>
+and 0 is the min range; if two numbers are specified, the larger is the max range.<BR>
+</ul>
+
+<P><tt><B>spawnrate</B>( <i>Float rate </i>)</tt><BR>
+<ul>Set the spawnrate of the emitter (models per second).<BR>
+This is only used for emitters and not for the originspawn and tagspawn commands</ul>
+
+<P><tt><B>sphere</B></tt><BR>
+<ul>Set the tempmodels to spawn in a sphere around the origin.<BR>
+If sphereradius is set, the tempmodels will spawn at the radius distance from<BR>
+the origin</ul>
+
+<P><tt><B>spread</B>( <i>Float spreadx, Float spready </i>)</tt><BR>
+<ul>Add a random variance in the spawned beam in the forward direction by the amound specified in spreadx and spready</ul>
+
+<P><tt><B>spritegridlighting</B></tt><BR>
+<ul>Calculates grid lighting for a sprite</ul>
+
+<P><tt><B>startoff</B></tt><BR>
+<ul>Signals an emitter to start in the off state (no tempmodels are emitted)</ul>
+
+<P><tt><B>stopaliaschannel</B>( <i>String alias </i>)</tt><BR>
+<ul>Stops the sound channel used by the specified alias.</ul>
+
+<P><tt><B>stopsound</B>( <i>String channelName </i>)</tt><BR>
+<ul>Stops the sound on the specified channel.</ul>
+
+<P><tt><B>swarm</B>( <i>Integer frequency, Float maxspeed, Float delta </i>)</tt><BR>
+<ul>Create a swarm like effect that the tempmodels follow when they are spawned<BR>
+frequency is how often they change direction<BR>
+maxspeed is how fast the tempmodel will move (it's randomly generated every<BR>
+time the frequency is hit)<BR>
+delta is how much the tempmodel moves toward the origin every frame</ul>
+
+<P><tt><B>swipe</B>( <i>[ Vector origin ] </i>)</tt><BR>
+<ul>Do a swipe and add it on to the swipe rendering list.</ul>
+
+<P><tt><B>swipeoff</B></tt><BR>
+<ul>Signal the end of a swipe</ul>
+
+<P><tt><B>swipeon</B>( <i>String shader, String startTagName, Float endTagNamelife, Float life </i>)</tt><BR>
+<ul>Signal the start of a swipe from the current tag</ul>
+
+<P><tt><B>tagbeamemitter</B>( <i>String tagstart, String tagend, String name </i>)</tt><BR>
+<ul>Create a beam emitter that uses 2 tags to determine it's start and end position</ul>
+
+<P><tt><B>tagbeamspawn</B>( <i>String tagstart, Float name </i>)</tt><BR>
+<ul>Create a beam emitter that uses the tag to determine it's starting position.</ul>
+
+<P><tt><B>tagdlight</B>( <i>String tagName, Float red, Float green, Float blue, Float intensity, Float life, [ String intvel ], [ String type1 ] </i>)</tt><BR>
+<ul>Spawn a dynamic light from the specified tag<BR>
+The red,green,blue parms are the color of the light<BR>
+The intensity is the radius of the light<BR>
+type is the type of light to create (lensflare,viewlensflare,additive)</ul>
+
+<P><tt><B>tagemitter</B>( <i>String tagName, String emitterName </i>)</tt><BR>
+<ul>Create an emitter that spawns tempmodels from the specified tag.<BR>
+This command is followed by a ( to specify a block of commands that modify the tempmodels</ul>
+
+<P><tt><B>taglist</B>( <i>String arg1, String arg2, [ String arg3 ], [ String arg4 ], [ String arg5 ], [ String arg6 ], [ String arg7 ], [ String arg8 ] </i>)</tt><BR>
+<ul>Set the tag list to create a beam that travels between all the tags</ul>
+
+<P><tt><B>tagspawn</B>( <i>String tagName </i>)</tt><BR>
+<ul>Spawn tempmodels from the specified tag.<BR>
+This command is followed by a ( to specify a block of commands that modify the tempmodels</ul>
+
+<P><tt><B>tagspawnlinked</B>( <i>String tagName </i>)</tt><BR>
+<ul>Spawn tempmodels from the specified tag, linked to the entity at the tag.<BR>
+This command is followed by a ( to specify a block of commands that modify the tempmodels</ul>
+
+<P><tt><B>tracelength</B>( <i>Float length </i>)</tt><BR>
+<ul>Set the length of the trace for the decal</ul>
+
+<P><tt><B>trail</B>( <i>String shader, String startTag, String endTag, Float life </i>)</tt><BR>
+<ul>Set the tempmodel to have a swipe that follows it</ul>
+
+<P><tt><B>treads</B>( <i>String tagName, String shader, Integer localrefnumber </i>)</tt><BR>
+<ul>Spawn treads from the specified tag using the specified tread type.</ul>
+
+<P><tt><B>treadsoff</B>( <i>String tagName, Integer localrefnumber </i>)</tt><BR>
+<ul>Stops spawning treads from the specified tag.</ul>
+
+<P><tt><B>twinkle</B>( <i>Float mintimeoff, Float maxtimeoff, Float mintimeon, Float maxtimeon </i>)</tt><BR>
+<ul>Set the tempmodel to twinkle with the specified settings</ul>
+
+<P><tt><B>uselasttraceend</B></tt><BR>
+<ul>Makes this trace command use the end results of the last trace command</ul>
+
+<P><tt><B>varycolor</B></tt><BR>
+<ul>Sets the color to vary by 0 to -200f specified color</ul>
+
+<P><tt><B>velocity</B>( <i>Float forwardVelocity </i>)</tt><BR>
+<ul>Set the forward velocity of the spawned tempmodel</ul>
+
+<P><tt><B>viewkick</B>( <i>Float pitchmin, Float pitchmax, Float yawmin, Float yawmax, Float recenterspeed, String patters, Float pitchmax, Float yawmax </i>)</tt><BR>
+<ul>Adds kick to the view of the owner when fired.</ul>
+
+<P><tt><B>volumetric</B></tt><BR>
+<ul>Set the effect to spawn volumetric sources rather than tempmodels</ul>
+
+<P><tt><B>wateronly</B></tt><BR>
+<ul>makes the temp model remove itself if it leaves water</ul>
+
+<P><tt><B>wind</B></tt><BR>
+<ul>Makes the temp model be affected by wind</ul>
+</BLOCKQUOTE>
+
+<h2> <a name="ClientSpecialEffectsManager">ClientSpecialEffectsManager</a> -> <a href="#Listener">Listener</a> -> <a href="#Class">Class</a></h2>
+<BLOCKQUOTE>
+
+<P><tt><B>effectdelay</B>( <i>Integer iEffect, Integer iCurrEmitter, Vector vPos, Vector vAngles, Vector vAxisA, Vector vAxisB, Vector vAxisC </i>)</tt><BR>
+<ul>Resumes the execution of iEffect effect from its iCurrEmitter emitter.</ul>
+</BLOCKQUOTE>
+
+<h2> <a name="Event">Event</a> -> <a href="#Class">Class</a></h2>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<h2> <a name="Listener">Listener</a> -> <a href="#Class">Class</a></h2>
+<BLOCKQUOTE>
+
+<P><tt><B>commanddelay</B>( <i>Float delay, String command, [ String [arg1] ], [ String [arg2] ], [ String [arg3] ], [ String [arg4] ], [ String [arg5] ], [ String [arg6] ] </i>)</tt><BR>
+<ul>executes a command after the given delay</ul>
+
+<P><tt><B>delete</B></tt><BR>
+<ul>Removes this listener immediately.</ul>
+
+<P><tt><B>immediateremove</B></tt><BR>
+<ul>Removes this listener immediately.</ul>
+
+<P><tt><B>remove</B></tt><BR>
+<ul>Removes this listener the next time events are processed.</ul>
+</BLOCKQUOTE>
+
+<h2> <a name="Script">Script</a> -> <a href="#Class">Class</a></h2>
+<BLOCKQUOTE>
+</BLOCKQUOTE>
+<H2>
+6 Client Game Module Classes.<BR>136 Client Game Module Events.
+</H2>
+</BODY>
+</HTML>
